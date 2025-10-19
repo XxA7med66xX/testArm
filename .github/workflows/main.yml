@@ -14,5 +14,5 @@ jobs:
       contents: write
     steps:
       - name: Check system arch
-        run: wmic os get osarchitecture
+        run: echo %PROCESSOR_ARCHITECTURE%
       
