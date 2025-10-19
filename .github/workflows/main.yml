@@ -13,6 +13,19 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Check system arch
-        run: systeminfo | find "System Type"
+      - name: Prepare folder
+        run: |
+          mkdir runtimes
+          copy C:\Windows\System32\vcruntime140.dll runtimes\
+          copy C:\Windows\System32\vcruntime140_1.dll runtimes\
+          copy C:\Windows\System32\msvcp140.dll runtimes\
+
+      - name: Create ZIP archive
+        run: powershell -Command "Compress-Archive -Path 'runtimes\*' -DestinationPath 'vc_runtimes_arm64.zip'"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vc-runtimes-arm64
+          path: vc_runtimes_arm64.zip
       
