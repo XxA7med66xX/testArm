@@ -14,5 +14,5 @@ jobs:
       contents: write
     steps:
       - name: Check system arch
-        run: echo %PROCESSOR_ARCHITECTURE%
+        run: systeminfo | find "System Type"
       
