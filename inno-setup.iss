@@ -14,6 +14,5 @@
 #pragma message "Arch2: " + Arch2
 #pragma message "Detected BuildArch: " + BuildArch
 
-
-#define OutputDir "{#WorkingDir}\build\windows\{#BuildArch}\runner\Release\"
+#define OutputDir WorkingDir + "\build\windows\" + BuildArch + "\runner\Release\"
 #pragma message "OutputDir: " + OutputDir
