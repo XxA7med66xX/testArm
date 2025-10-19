@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-11-arm
+    runs-on: windows-11
 
     permissions:
       contents: write
